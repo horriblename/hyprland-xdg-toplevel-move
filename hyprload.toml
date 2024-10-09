@@ -1,10 +1,14 @@
 [example]
 description = "Example plugin"
-version = "1.0.0"
 author = "YOU"
+## NOTE: version is omitted here because I don't like having multiple places
+## to update the version string. Feel free to add it back in.
+#
+# version = "v0.0.0"
 
 [example.build]
-output = "example.so"
+output = "build/src/example.so"
 steps = [
-    "make all",
+    "meson setup build",
+    "meson compile -Cbuild"
 ]
