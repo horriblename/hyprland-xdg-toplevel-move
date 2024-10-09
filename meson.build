@@ -15,4 +15,7 @@ endif
 
 hyprland_headers = dependency('hyprland')
 
+incdir = include_directories('include')
+
+subdir('include')
 subdir('src')
