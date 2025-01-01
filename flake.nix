@@ -20,12 +20,12 @@
         shellHook = ''
           meson setup build --reconfigure
           # clangd has different flags than gcc because... why not?
-          sed -e 's/c++23/c++2b/g' ./build/compile_commands.json > ./compile_commands.json
+          sed -e 's/c++26/c++2c/g' ./build/compile_commands.json > ./compile_commands.json
         '';
 
         # Note: gcc needs to be specified or else an older version might be used
         # TODO: maybe using gcc13Stdenv.mkShell would fix this?
-        nativeBuildInputs = with pkgs; [gcc13 meson pkg-config ninja];
+        nativeBuildInputs = with pkgs; [gcc14 meson pkg-config ninja];
         buildInputs = [hyprland.packages.${system}.hyprland];
         inputsFrom = [
           hyprland.packages.${system}.hyprland
