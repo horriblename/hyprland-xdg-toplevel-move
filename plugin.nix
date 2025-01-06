@@ -1,6 +1,6 @@
 {
   lib,
-  gcc13Stdenv,
+  stdenv,
   meson,
   ninja,
   pkg-config,
@@ -8,7 +8,7 @@
 }: let
   version = builtins.readFile ./VERSION;
 in
-  gcc13Stdenv.mkDerivation {
+  stdenv.mkDerivation {
     pname = "example";
     inherit version;
     src = ./.;
