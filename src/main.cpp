@@ -24,7 +24,7 @@ APICALL EXPORT std::string PLUGIN_API_VERSION() {
 void OnWindowOpen(void*, SCallbackInfo& cbinfo, std::any args) {
     PHLWINDOW mon = std::any_cast<PHLWINDOW>(args);
 
-    mon->m_pXDGSurface->toplevel->resource->setMove([](CXdgToplevel*, wl_resource*, uint32_t) {
+    mon->m_xdgSurface->m_toplevel->m_resource->setMove([](CXdgToplevel*, wl_resource*, uint32_t) {
         g_pKeybindManager->changeMouseBindMode(MBIND_MOVE);
     });
 }
